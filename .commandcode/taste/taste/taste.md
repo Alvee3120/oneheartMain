@@ -13,3 +13,5 @@
 - Favors respecting `prefers-reduced-motion` for any animation. Confidence: 0.75
 - Prioritizes accessibility: WCAG AA contrast, visible focus states, full keyboard navigation, a skip-to-content link, and touch targets of at least 44px. Confidence: 0.85
 - Prioritizes technical SEO: semantic landmarks, exactly one `<h1>`, logical heading hierarchy, the Next.js Metadata API, JSON-LD structured data, sitemap/robots, and a target of Lighthouse 95+. Confidence: 0.8
+- Wants user-supplied copy preserved verbatim rather than silently reworded or "improved"; if a change is made (e.g., fixing an obvious typo) it should be called out explicitly for approval. Confidence: 0.6
+- When new feedback arrives mid-step, expects only that specific change to be made, then a stop (no continuing the original step), with a clear note that the interrupted step is paused and how to resume it. Confidence: 0.7

@@ -19,6 +19,8 @@ export type CoreValue = {
 export const site = {
   brand: "ONEHEART",
   tagline: "Business for Humanity",
+  // TODO: replace with the production domain before launch.
+  url: "https://example.com",
   metaDescription:
     "OneHeart is a purpose-driven Bangladeshi business group built on a simple belief: business should create value not only for owners, but for people and society as a whole.",
 
@@ -157,6 +159,12 @@ export const site = {
     tagline: "Business for Humanity",
     // Literal on purpose: prerendered pages cannot call new Date(). Bump when needed.
     copyrightYear: 2026,
+    rightsNote: "All rights reserved.",
+    credit: {
+      label: "Design and Developed by",
+      name: "Alvee",
+      url: "https://alveeportfolio.vercel.app",
+    },
     // TODO: add footer/social/legal links once they are provided.
   },
 } as const;

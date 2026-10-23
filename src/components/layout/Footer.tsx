@@ -30,9 +30,28 @@ export function Footer() {
           </nav>
         </div>
 
-        <p className="mt-10 border-t border-surface/15 pt-6 text-sm text-surface/60">
-          © {site.footer.copyrightYear} {site.footer.brand}
-        </p>
+        <div className="mt-10 flex flex-col gap-3 border-t border-surface/15 pt-6 text-sm text-surface/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {site.footer.copyrightYear} {site.footer.brand}.{" "}
+            {site.footer.rightsNote}
+          </p>
+
+          <p>
+            {site.footer.credit.label}{" "}
+            <a
+              href={site.footer.credit.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-surface/80 underline decoration-surface/30 underline-offset-4 transition-colors hover:text-brand-light hover:decoration-brand-light"
+            >
+              {site.footer.credit.name}
+              <span className="sr-only">
+                {" "}
+                — portfolio site, opens in a new tab
+              </span>
+            </a>
+          </p>
+        </div>
       </Container>
     </footer>
   );
