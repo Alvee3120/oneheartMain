@@ -1,0 +1,15 @@
+# Taste
+- Prefers a strict, confirmation-gated step-by-step workflow: build ONLY the step requested, never jump ahead or pre-build future sections, and stop after each step to wait for an explicit "CONFIRMED" / "NEXT" before continuing. Confidence: 0.95
+- Wants each step to end with a fixed report format: a 3–5 bullet summary, a list of files created/changed, preview instructions, then a stop. Confidence: 0.9
+- Prefers being asked ONE short clarifying question when something is ambiguous rather than having the agent guess. Confidence: 0.85
+- Expects previously confirmed work to be left intact — no rewriting or restructuring unless explicitly asked. Confidence: 0.9
+- Strongly dislikes invented content: never fabricate facts, statistics, testimonials, addresses, phone numbers, or links; use only the content provided. Confidence: 0.9
+- Prefers Next.js (App Router) with TypeScript in strict mode and Tailwind CSS for styling. Confidence: 0.85
+- Prefers minimal dependencies: wants to approve adding libraries (e.g., Framer Motion) and favors plain CSS animations otherwise. Confidence: 0.85
+- Prefers React Server Components by default, using "use client" only where strictly necessary. Confidence: 0.8
+- Wants all copy and links centralized in one typed data file, keeping components free of hard-coded content. Confidence: 0.85
+- Prefers mobile-first, fully responsive design that looks polished across the full range (360px to 1440px+). Confidence: 0.8
+- Enforces strict code quality: no `any`, no console logs, no unused code, clean folder structure, small reusable components, and zero ESLint/TypeScript errors. Confidence: 0.85
+- Favors respecting `prefers-reduced-motion` for any animation. Confidence: 0.75
+- Prioritizes accessibility: WCAG AA contrast, visible focus states, full keyboard navigation, a skip-to-content link, and touch targets of at least 44px. Confidence: 0.85
+- Prioritizes technical SEO: semantic landmarks, exactly one `<h1>`, logical heading hierarchy, the Next.js Metadata API, JSON-LD structured data, sitemap/robots, and a target of Lighthouse 95+. Confidence: 0.8
