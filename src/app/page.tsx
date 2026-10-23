@@ -1,6 +1,9 @@
 import { About } from "@/components/sections/About";
+import { ClosingBanner } from "@/components/sections/ClosingBanner";
 import { Hero } from "@/components/sections/Hero";
+import { Philosophy } from "@/components/sections/Philosophy";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Values } from "@/components/sections/Values";
 import { VisionMission } from "@/components/sections/VisionMission";
 
 export default function Home() {
@@ -10,6 +13,9 @@ export default function Home() {
       <About />
       <VisionMission />
       <Portfolio />
+      <Values />
+      <Philosophy />
+      <ClosingBanner />
     </main>
   );
 }

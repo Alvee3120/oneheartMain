@@ -98,6 +98,7 @@ export const site = {
   },
 
   values: {
+    label: "Values",
     heading: "Core Values",
     items: [
       {
@@ -136,6 +137,7 @@ export const site = {
   },
 
   philosophy: {
+    label: "Philosophy",
     heading: "Business Philosophy",
     paragraphs: [
       "We do not see business merely as a way of making money.",
@@ -153,6 +155,8 @@ export const site = {
   footer: {
     brand: "ONEHEART",
     tagline: "Business for Humanity",
-    // TODO (Step 8): add footer/social/legal links once they are provided.
+    // Literal on purpose: prerendered pages cannot call new Date(). Bump when needed.
+    copyrightYear: 2026,
+    // TODO: add footer/social/legal links once they are provided.
   },
 } as const;
