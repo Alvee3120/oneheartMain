@@ -9,11 +9,17 @@ export type Company = {
   description: string;
   /** Placeholder until the live site URL is provided. */
   url: string;
+  /** Fills the card with the accent colour and drops it below the others. */
+  highlight?: boolean;
 };
 
 export type CoreValue = {
   title: string;
   description: string;
+  /** Optional artwork, blended into the top of the card. */
+  image?: string;
+  /** Fills the card with the accent colour instead of white. */
+  highlight?: boolean;
 };
 
 export const site = {
@@ -83,6 +89,7 @@ export const site = {
         description:
           "Our knowledge and publishing initiative, dedicated to making meaningful books, eBooks and ideas accessible to readers and contributing to learning, personal development, and positive thinking.",
         url: "#",
+        highlight: true,
       },
       {
         name: "The Grace",
@@ -105,11 +112,15 @@ export const site = {
     items: [
       {
         title: "Justice",
-        description: "We believe business must be conducted fairly and responsibly.",
+        description:
+          "We believe business must be conducted fairly and responsibly.",
+        image: "/justice.jpeg",
       },
       {
         title: "Integrity",
-        description: "We do what is right, even when it is not the easiest choice.",
+        description:
+          "We do what is right, even when it is not the easiest choice.",
+        image: "/integrity.png",
       },
       {
         title: "Quality",
@@ -119,6 +130,7 @@ export const site = {
       {
         title: "Humanity",
         description: "People are at the heart of our business decisions.",
+        highlight: true,
       },
       {
         title: "Fairness",
@@ -129,11 +141,13 @@ export const site = {
         title: "Responsibility",
         description:
           "We accept our responsibility toward society, the environment, and future generations.",
+        image: "/respon.jpeg",
       },
       {
         title: "Bangladesh First",
         description:
           "We believe in the potential of Bangladeshi people, products, entrepreneurs, and enterprises.",
+        image: "/bd.avif",
       },
     ] satisfies CoreValue[],
   },

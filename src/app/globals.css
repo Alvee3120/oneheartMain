@@ -7,6 +7,7 @@
   --oh-forest-deep: #1e3b26;
   --oh-brand: #b4e61e;
   --oh-brand-light: #c3f53c;
+  --oh-accent: #b3e634;
   --oh-surface: #ffffff;
   --oh-surface-muted: #f7f7f7;
   --oh-muted: #5a6470;
@@ -16,6 +17,7 @@
   --oh-font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
   --oh-font-display: var(--font-poppins), var(--oh-font-sans);
+  --oh-font-fancy: var(--font-cormorant), ui-serif, Georgia, serif;
 
   /* Layout rhythm */
   --oh-container: 75rem;
@@ -31,6 +33,7 @@
   --color-forest-deep: var(--oh-forest-deep);
   --color-brand: var(--oh-brand);
   --color-brand-light: var(--oh-brand-light);
+  --color-accent: var(--oh-accent);
   --color-surface: var(--oh-surface);
   --color-surface-muted: var(--oh-surface-muted);
   --color-muted: var(--oh-muted);
@@ -38,6 +41,7 @@
 
   --font-sans: var(--oh-font-sans);
   --font-display: var(--oh-font-display);
+  --font-fancy: var(--oh-font-fancy);
 
   /* Heading scale — mobile values; sections scale these up at md+. */
   --text-display: 2.75rem;

@@ -1,40 +1,39 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 type LogoWordmarkTone = "default" | "inverted";
 
-const wordmarkTones: Record<LogoWordmarkTone, string> = {
-  default: "text-ink",
-  inverted: "text-surface",
-};
+/** Intrinsic size of the lockup in public/OneHeart.png (wordmark + tagline). */
+const LOGO_WIDTH = 3400;
+const LOGO_HEIGHT = 1250;
 
-/** Placeholder wordmark — swap the badge mark for the real logo asset when available. */
 export function Logo({
   tone = "default",
+  eager = false,
   className,
 }: {
   tone?: LogoWordmarkTone;
+  /** Set on the header logo so it is not lazy-loaded above the fold. */
+  eager?: boolean;
   className?: string;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-3", className)}>
-      <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 24 24"
-          className="size-5 fill-forest"
-        >
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-        </svg>
-      </span>
-      <span
-        className={cn(
-          "font-display text-lg font-bold tracking-tight",
-          wordmarkTones[tone],
-        )}
-      >
-        {site.brand}
-      </span>
-    </span>
+    <Image
+      src="/OneHeart.png"
+      alt={site.brand}
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : "auto"}
+      sizes="120px"
+      className={cn(
+        "block h-10 w-auto md:h-11",
+        // The lockup is drawn for light backgrounds — flatten it to a white
+        // silhouette so it stays legible on the forest-deep footer.
+        tone === "inverted" && "brightness-0 invert",
+        className,
+      )}
+    />
   );
 }

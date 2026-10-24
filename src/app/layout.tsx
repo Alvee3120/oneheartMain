@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Cormorant_Garamond, Inter, Poppins } from "next/font/google";
 import { site } from "@/data/site";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -18,6 +18,13 @@ const poppins = Poppins({
   display: "swap",
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["300"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
 // TODO (Step 9): point this at the production domain before launch.
 const siteUrl = "https://example.com";
 
@@ -32,7 +39,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable} ${cormorant.variable}`}
+    >
       <body className="flex min-h-dvh flex-col bg-surface font-sans text-ink antialiased">
         <a
           href="#main"

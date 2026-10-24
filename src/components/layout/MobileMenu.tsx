@@ -2,9 +2,24 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import type { NavLink } from "@/data/site";
+import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/Container";
 
-export function MobileMenu({ links }: { links: readonly NavLink[] }) {
+type MobileMenuTone = "default" | "inverted";
+
+const tones: Record<MobileMenuTone, string> = {
+  default: "border-line text-ink hover:bg-surface-muted",
+  inverted:
+    "border-surface/40 text-surface hover:bg-surface/10 focus-visible:outline-surface",
+};
+
+export function MobileMenu({
+  links,
+  tone = "default",
+}: {
+  links: readonly NavLink[];
+  tone?: MobileMenuTone;
+}) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -32,7 +47,10 @@ export function MobileMenu({ links }: { links: readonly NavLink[] }) {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Close navigation menu" : "Open navigation menu"}
-        className="grid size-11 shrink-0 place-items-center rounded-pill border border-line text-ink transition-colors hover:bg-surface-muted lg:hidden"
+        className={cn(
+          "grid size-11 shrink-0 place-items-center rounded-pill border transition-colors lg:hidden",
+          tones[tone],
+        )}
       >
         <svg
           aria-hidden="true"
