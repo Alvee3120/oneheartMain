@@ -1,4 +1,5 @@
 import { site } from "@/data/site";
+import { AboutBackdrop } from "@/components/ui/AboutBackdrop";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Heading } from "@/components/ui/Heading";
@@ -6,7 +7,13 @@ import { Section } from "@/components/ui/Section";
 
 export function About() {
   return (
-    <Section id="about" labelledBy="about-heading">
+    <Section
+      id="about"
+      labelledBy="about-heading"
+      className="relative isolate overflow-hidden"
+    >
+      <AboutBackdrop />
+
       <Container className="text-center">
         <Eyebrow>{site.about.label}</Eyebrow>
         <Heading id="about-heading" className="mx-auto mt-6 max-w-2xl text-balance">

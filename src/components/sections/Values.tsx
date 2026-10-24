@@ -25,12 +25,9 @@ export function Values() {
     <Section
       id="values"
       labelledBy="values-heading"
-      className="relative isolate bg-surface-muted"
+      className="relative isolate bg-surface"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06] [background-image:radial-gradient(circle_at_1px_1px,var(--color-ink)_1px,transparent_0)] [background-size:26px_26px]"
-      />
+      <div aria-hidden="true" className="halftone" />
 
       <Container>
         <Eyebrow>{site.values.label}</Eyebrow>

@@ -103,6 +103,86 @@
   }
 }
 
+@layer components {
+  /**
+   * Subtle green halftone. Three dot scales share one grid and one origin, so a
+   * point covered by all three masks shows the largest dot, and points further
+   * out keep only the smaller scales — dot size and opacity both fall away from
+   * the corners. Each scale is masked by a pair of corner glows (top-right and
+   * bottom-left), sized in % so the falloff tracks the section as it resizes.
+   */
+  .halftone {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    --dot: #1a4d44;
+    --pitch: 12px;
+    /* Mask peaks are below 1 because the three layers composite over one
+       another, so the corner would otherwise stack to fully opaque. */
+    --mask-near: radial-gradient(
+        34% 38% at 100% 0%,
+        rgb(0 0 0 / 0.45) 0%,
+        transparent 100%
+      ),
+      radial-gradient(34% 38% at 0% 100%, rgb(0 0 0 / 0.45) 0%, transparent 100%);
+    --mask-mid: radial-gradient(
+        52% 58% at 100% 0%,
+        rgb(0 0 0 / 0.34) 0%,
+        transparent 100%
+      ),
+      radial-gradient(52% 58% at 0% 100%, rgb(0 0 0 / 0.34) 0%, transparent 100%);
+    --mask-far: radial-gradient(
+        70% 78% at 100% 0%,
+        rgb(0 0 0 / 0.26) 0%,
+        transparent 100%
+      ),
+      radial-gradient(70% 78% at 0% 100%, rgb(0 0 0 / 0.26) 0%, transparent 100%);
+
+    background-image: radial-gradient(
+      circle,
+      var(--dot) 2.2px,
+      transparent 2.6px
+    );
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: var(--pitch) var(--pitch);
+    -webkit-mask-image: var(--mask-near);
+    mask-image: var(--mask-near);
+  }
+
+  .halftone::before,
+  .halftone::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: var(--pitch) var(--pitch);
+  }
+
+  .halftone::before {
+    background-image: radial-gradient(
+      circle,
+      var(--dot) 1.3px,
+      transparent 1.7px
+    );
+    -webkit-mask-image: var(--mask-mid);
+    mask-image: var(--mask-mid);
+  }
+
+  .halftone::after {
+    background-image: radial-gradient(
+      circle,
+      var(--dot) 0.7px,
+      transparent 1.1px
+    );
+    -webkit-mask-image: var(--mask-far);
+    mask-image: var(--mask-far);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
